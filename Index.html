@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pathan Abed Ali Khan | Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F3EEE3; --surface:#FBF8F1; --ink:#0E1330; --muted:#5A5F73; --line:#DCD4C2;
+  --brand:#4B4DED; --brand-soft:#E6E4F6; --on-brand:#FFFFFF; --hl:#FFD84D;
+  --code-bg:#0E1330; --code-ink:#E7E9FF; --c-key:#A9AAFF; --c-str:#8EE3C8; --c-fn:#FFD84D; --c-dim:#7C84B0;
+  --shadow:0 1px 2px rgba(14,19,48,.06),0 12px 32px -12px rgba(14,19,48,.18);
+  --display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --body:"DM Sans","Segoe UI",system-ui,-apple-system,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0A0E22; --surface:#121733; --ink:#EEF0FF; --muted:#9BA4C8; --line:#232A52;
+    --brand:#8183FF; --brand-soft:#1C2150; --on-brand:#0A0E22;
+    --code-bg:#070A1A; --shadow:0 1px 2px rgba(0,0,0,.4),0 12px 32px -12px rgba(0,0,0,.6);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0A0E22; --surface:#121733; --ink:#EEF0FF; --muted:#9BA4C8; --line:#232A52;
+  --brand:#8183FF; --brand-soft:#1C2150; --on-brand:#0A0E22;
+  --code-bg:#070A1A; --shadow:0 1px 2px rgba(0,0,0,.4),0 12px 32px -12px rgba(0,0,0,.6);
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 76px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--brand);outline-offset:3px;border-radius:6px}
+h1,h2,h3{font-family:var(--display);line-height:1.1;margin:0;letter-spacing:-.02em}
+p{margin:0}
+.wrap{width:min(1120px,100% - 2.5rem);margin-inline:auto}
+section{padding-block:clamp(4rem,9vw,7rem)}
+
+/* header */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in srgb,var(--bg) 84%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+.brand{font-family:var(--display);font-weight:800;font-size:1.25rem;text-decoration:none;display:flex;align-items:center;gap:.6rem}
+.brand i{width:34px;height:34px;border-radius:10px;background:var(--brand);color:var(--on-brand);display:grid;place-items:center;font-style:normal;font-size:.95rem}
+.links{display:flex;gap:.25rem;align-items:center}
+.links a{text-decoration:none;font-weight:500;font-size:.95rem;padding:.5rem .8rem;border-radius:999px;color:var(--muted);transition:color .2s,background .2s}
+.links a:hover{color:var(--ink)}
+.links a.active{background:var(--brand-soft);color:var(--brand)}
+.tools{display:flex;gap:.5rem;align-items:center}
+.icon-btn{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;display:grid;place-items:center;font-size:1.05rem}
+.burger{display:none}
+@media (max-width:900px){
+  .burger{display:grid}
+  .links{position:absolute;left:0;right:0;top:68px;flex-direction:column;align-items:stretch;background:var(--surface);border-bottom:1px solid var(--line);padding:.75rem 1.25rem 1rem;gap:.15rem;transform-origin:top;transform:scaleY(0);opacity:0;pointer-events:none;transition:transform .25s,opacity .25s}
+  .links.open{transform:scaleY(1);opacity:1;pointer-events:auto}
+  .links a{padding:.8rem 1rem;font-size:1.05rem}
+}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:.55rem;padding:.85rem 1.5rem;border-radius:999px;font-weight:600;font-size:1rem;text-decoration:none;border:1.5px solid transparent;cursor:pointer;font-family:var(--body);transition:transform .2s,box-shadow .2s,background .2s}
+.btn-primary{background:var(--brand);color:var(--on-brand);box-shadow:0 10px 24px -10px var(--brand)}
+.btn-primary:hover{transform:translateY(-2px)}
+.btn-ghost{background:transparent;border-color:var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--brand);color:var(--brand)}
+.btn-wa{background:#1FA855;color:#fff}
+.btn-wa:hover{transform:translateY(-2px)}
+
+/* hero */
+#home{padding-top:clamp(3rem,7vw,5.5rem)}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:center}
+.pill{display:inline-flex;align-items:center;gap:.6rem;padding:.4rem .95rem;border:1px solid var(--line);background:var(--surface);border-radius:999px;font-size:.9rem;font-weight:500;margin-bottom:1.5rem}
+.dot{width:9px;height:9px;border-radius:50%;background:#1FA855;position:relative}
+.dot::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:2px solid #1FA855;animation:ping 1.8s ease-out infinite}
+@keyframes ping{from{transform:scale(.5);opacity:.9}to{transform:scale(1.5);opacity:0}}
+.hero h1{font-size:clamp(2.6rem,6.4vw,4.8rem);font-weight:800}
+.hero h1 span{display:block;background:linear-gradient(transparent 62%,var(--hl) 62%,var(--hl) 92%,transparent 92%);width:fit-content}
+.hero .lead{margin-top:1.5rem;font-size:1.2rem;color:var(--muted);max-width:34rem}
+.cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
+.code{background:var(--code-bg);color:var(--code-ink);border-radius:18px;box-shadow:var(--shadow);overflow:hidden;font-family:var(--mono);font-size:.95rem;animation:floaty 7s ease-in-out infinite}
+@keyframes floaty{50%{transform:translateY(-8px)}}
+.code-bar{display:flex;gap:.45rem;align-items:center;padding:.85rem 1rem;border-bottom:1px solid rgba(255,255,255,.08)}
+.code-bar b{width:11px;height:11px;border-radius:50%;background:#FF5F57}
+.code-bar b:nth-child(2){background:#FEBC2E}.code-bar b:nth-child(3){background:#28C840}
+.code-bar em{margin-left:.6rem;font-style:normal;color:var(--c-dim);font-size:.8rem}
+.code pre{margin:0;padding:1.4rem 1.4rem 1.7rem;min-height:15.5rem;white-space:pre-wrap;line-height:1.85;overflow-x:auto}
+.k{color:var(--c-key)}.s{color:var(--c-str)}.f{color:var(--c-fn)}.d{color:var(--c-dim)}
+.caret{display:inline-block;width:8px;height:1.1em;background:var(--c-fn);vertical-align:-.2em;animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+@media (max-width:900px){.hero{grid-template-columns:1fr}.code{animation:none}}
+
+.hero-photo{width:108px;height:108px;border-radius:50%;object-fit:cover;border:4px solid var(--surface);box-shadow:var(--shadow);outline:2px solid var(--brand);outline-offset:4px;margin:0 0 1.75rem 4px}
+/* section heads */
+.head{margin-bottom:2.75rem;max-width:40rem}
+.head h2{font-size:clamp(2rem,4.5vw,3rem);font-weight:800}
+.head p{margin-top:.8rem;color:var(--muted)}
+
+/* cards */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:1.75rem;box-shadow:var(--shadow);transition:transform .25s,border-color .25s}
+.card:hover{transform:translateY(-4px);border-color:var(--brand)}
+.grid{display:grid;gap:1.25rem}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g2{grid-template-columns:repeat(2,1fr)}
+@media (max-width:900px){.g3{grid-template-columns:1fr 1fr}}
+@media (max-width:620px){.g3,.g2{grid-template-columns:1fr}}
+
+/* about */
+.about{display:grid;grid-template-columns:1.3fr 1fr;gap:3rem;align-items:start}
+.about p+p{margin-top:1.1rem}
+.about .text{color:var(--muted);max-width:38rem}
+.facts{display:grid;gap:.9rem}
+.fact{display:flex;gap:1rem;align-items:center}
+.fact .ic{width:46px;height:46px;border-radius:14px;background:var(--brand-soft);color:var(--brand);display:grid;place-items:center;font-size:1.3rem;flex:none}
+.fact small{display:block;color:var(--muted);font-size:.85rem;line-height:1.3}
+.fact strong{font-weight:600;line-height:1.35}
+.roles{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.6rem}
+.chip{display:inline-flex;align-items:center;padding:.4rem .9rem;border-radius:9px;background:var(--brand-soft);color:var(--brand);font-weight:600;font-size:.92rem}
+@media (max-width:900px){.about{grid-template-columns:1fr}}
+
+/* skills */
+.skill-card h3{font-size:1.3rem;margin:1rem 0 .4rem}
+.skill-card p{color:var(--muted);font-size:.98rem}
+.skill-card .big{width:52px;height:52px;border-radius:15px;background:var(--brand);color:var(--on-brand);display:grid;place-items:center;font-size:1.5rem}
+.tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.2rem}
+.tag{padding:.35rem .8rem;border:1px solid var(--line);border-radius:9px;font-size:.9rem;font-weight:500;font-family:var(--mono);transition:background .2s,color .2s,border-color .2s}
+.tag:hover{background:var(--brand);color:var(--on-brand);border-color:var(--brand)}
+
+/* timeline */
+.timeline{position:relative;max-width:46rem;padding-left:2.2rem}
+.timeline::before{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:2px;background:var(--line)}
+.timeline .fill{position:absolute;left:8px;top:6px;width:2px;height:0;background:var(--brand);transition:height 1.4s ease}
+.tl{position:relative;padding-bottom:2rem}
+.tl:last-child{padding-bottom:0}
+.tl::before{content:"";position:absolute;left:-2.2rem;top:.55rem;width:18px;height:18px;border-radius:50%;background:var(--bg);border:3px solid var(--brand)}
+.tl .when{font-size:.9rem;color:var(--brand);font-weight:600}
+.tl h3{font-size:1.4rem;margin:.2rem 0 .3rem}
+.tl p{color:var(--muted)}
+
+/* projects */
+.shot{height:150px;border-radius:12px;background:var(--brand-soft);border:1px solid var(--line);padding:12px;display:flex;flex-direction:column;gap:8px;margin-bottom:1.3rem;overflow:hidden}
+.shot .top{display:flex;gap:5px}.shot .top i{width:8px;height:8px;border-radius:50%;background:var(--brand);opacity:.45}
+.shot .bar{height:10px;border-radius:5px;background:var(--brand);opacity:.28}
+.shot .bar.w1{width:55%}.shot .bar.w2{width:80%}.shot .bar.w3{width:38%}
+.shot .row{display:flex;gap:8px;flex:1}
+.shot .row div{flex:1;border-radius:8px;background:var(--surface);border:1px solid var(--line);transition:transform .3s}
+.card:hover .shot .row div:nth-child(2){transform:translateY(-6px)}
+.proj h3{font-size:1.3rem}
+.proj p{color:var(--muted);margin:.5rem 0 1rem;font-size:.98rem}
+.sample{font-size:.8rem;color:var(--muted);margin-top:1.1rem;font-style:italic}
+.note{margin-top:1.6rem;padding:1rem 1.25rem;border-radius:14px;background:var(--brand-soft);color:var(--ink);font-size:.95rem;max-width:40rem}
+
+/* certification */
+.cert{display:flex;gap:1.5rem;align-items:center;max-width:46rem}
+.badge{flex:none;width:92px;height:92px;border-radius:50%;background:conic-gradient(from 0deg,var(--brand),var(--hl),var(--brand));display:grid;place-items:center;animation:spin 12s linear infinite}
+.badge span{width:78px;height:78px;border-radius:50%;background:var(--surface);display:grid;place-items:center;font-size:2rem;animation:spin 12s linear infinite reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+.cert h3{font-size:1.5rem;margin-bottom:.3rem}
+.cert p{color:var(--muted)}
+@media (max-width:560px){.cert{flex-direction:column;text-align:center}}
+
+/* resume */
+.resume-wrap{display:grid;grid-template-columns:.7fr 1.3fr;gap:2.5rem;align-items:start}
+.sheet{background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:2.2rem;font-size:.98rem}
+.sheet h3{font-size:1.9rem}
+.sheet .role{color:var(--brand);font-weight:600;margin-top:.2rem}
+.sheet h4{font-family:var(--display);font-size:1.05rem;margin:1.5rem 0 .5rem;padding-bottom:.35rem;border-bottom:1px solid var(--line)}
+.sheet p,.sheet li{color:var(--muted);font-size:.97rem}
+.sheet ul{margin:0;padding-left:1.1rem}
+.sheet .two{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+@media (max-width:900px){.resume-wrap{grid-template-columns:1fr}}
+@media (max-width:560px){.sheet{padding:1.4rem}.sheet .two{grid-template-columns:1fr}}
+
+/* contact */
+.contact{display:grid;grid-template-columns:auto 1fr;gap:3.5rem;align-items:center;max-width:860px}
+.avatar{position:relative;width:240px;height:240px}
+.avatar::before{content:"";position:absolute;inset:-12px;border-radius:50%;border:2px dashed var(--brand);opacity:.55;animation:spin 30s linear infinite}
+.avatar .face{width:100%;height:100%;border-radius:50%;overflow:hidden;background:linear-gradient(135deg,var(--brand),#7B5CFF);display:grid;place-items:center;color:#fff;font-family:var(--display);font-weight:800;font-size:4.5rem;border:6px solid var(--surface);box-shadow:var(--shadow)}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.avatar label{position:absolute;right:6px;bottom:8px;width:46px;height:46px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;cursor:pointer;font-size:1.15rem;box-shadow:var(--shadow)}
+.avatar input{position:absolute;opacity:0;width:1px;height:1px}
+.avatar input:focus-visible + label{outline:3px solid var(--brand);outline-offset:3px}
+.contact h2{font-size:clamp(2rem,4.5vw,3rem);font-weight:800}
+.contact .sub{color:var(--muted);margin:.7rem 0 1.6rem}
+.line{display:flex;align-items:center;gap:1rem;padding:1rem 1.2rem;border:1px solid var(--line);background:var(--surface);border-radius:16px;margin-bottom:.8rem;text-decoration:none;transition:border-color .2s,transform .2s}
+.line:hover{border-color:var(--brand);transform:translateX(4px)}
+.line .ic{width:42px;height:42px;border-radius:12px;background:var(--brand-soft);display:grid;place-items:center;font-size:1.2rem;flex:none}
+.line small{display:block;color:var(--muted);font-size:.85rem;line-height:1.3}
+.line strong{font-weight:600;font-size:1.1rem}
+@media (max-width:760px){.contact{grid-template-columns:1fr;justify-items:center;text-align:left;gap:2.5rem}.contact>div:last-child{width:100%}.avatar{width:200px;height:200px}}
+
+footer{padding:2rem 0 3rem;border-top:1px solid var(--line);color:var(--muted);font-size:.92rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease;transition-delay:var(--d,0s)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+  .rv{opacity:1;transform:none}
+}
+
+/* print resume */
+@media print{
+  body *{visibility:hidden}
+  #resume-sheet,#resume-sheet *{visibility:visible}
+  #resume-sheet{position:absolute;left:0;top:0;width:100%;box-shadow:none;border:none}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a href="#home" class="brand"><i>P</i><span>Pathan</span></a>
+    <nav class="links" id="links" aria-label="Main">
+      <a href="#home">Home</a>
+      <a href="#about">About me</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#projects">Projects</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#resume">Resume</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="tools">
+      <button class="icon-btn" id="theme" aria-label="Switch light or dark theme">◐</button>
+      <button class="icon-btn burger" id="burger" aria-label="Open menu" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- HOME -->
+<section id="home">
+  <div class="wrap hero">
+    <div>
+      <img class="hero-photo" id="heroimg" alt="Pathan" width="108" height="108">
+      <div class="pill"><span class="dot"></span>Open to fresher roles</div>
+      <h1>Hi, I'm <span>Pathan.</span></h1>
+      <p class="lead">A B.Tech CSE student who builds clean, fast web apps with Python, React and SQL. I'm looking for my first role as a Python, Frontend or Full Stack Developer.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="#projects">See my projects</a>
+        <a class="btn btn-ghost" href="#resume">View resume</a>
+        <a class="btn btn-ghost" href="#contact">Contact me</a>
+      </div>
+    </div>
+    <div class="code" aria-label="A short Python snippet describing Abed">
+      <div class="code-bar"><b></b><b></b><b></b><em>abed.py</em></div>
+      <pre id="typed" aria-hidden="true"></pre>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="head rv"><h2>About me</h2></div>
+    <div class="about">
+      <div class="text rv">
+        <p>I'm a Computer Science Engineering student at St Mary's Engineering College. I enjoy turning an idea into something people can click, scroll and use.</p>
+        <p>I completed a Python Full Stack Developer course at Teks Academy, where I practised building both the screens people see and the logic and databases behind them.</p>
+        <p>I'm now looking for a team where I can keep learning, ship real features and grow into a confident developer.</p>
+        <div class="roles">
+          <span class="chip">Python Developer</span>
+          <span class="chip">Frontend Developer</span>
+          <span class="chip">Full Stack Developer</span>
+        </div>
+      </div>
+      <div class="facts rv" style="--d:.12s">
+        <div class="card fact"><div class="ic">🎓</div><div><small>Studying</small><strong>B.Tech in CSE</strong></div></div>
+        <div class="card fact"><div class="ic">🏫</div><div><small>College</small><strong>St Mary's Engineering College</strong></div></div>
+        <div class="card fact"><div class="ic">🚀</div><div><small>Looking for</small><strong>Fresher developer roles</strong></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="wrap">
+    <div class="head rv"><h2>Skills</h2><p>The tools I use to build a web app from the screen to the database.</p></div>
+    <div class="grid g3">
+      <article class="card skill-card rv">
+        <div class="big">🐍</div>
+        <h3>Programming</h3>
+        <p>Writing logic, automating tasks and building back-end features.</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">JavaScript</span></div>
+      </article>
+      <article class="card skill-card rv" style="--d:.1s">
+        <div class="big">🎨</div>
+        <h3>Frontend</h3>
+        <p>Responsive, accessible interfaces that look good on any screen.</p>
+        <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">React</span></div>
+      </article>
+      <article class="card skill-card rv" style="--d:.2s">
+        <div class="big">🗄️</div>
+        <h3>Database</h3>
+        <p>Storing, querying and organising data for applications.</p>
+        <div class="tags"><span class="tag">SQL</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="wrap">
+    <div class="head rv"><h2>Education</h2></div>
+    <div class="timeline" id="timeline">
+      <div class="fill" id="tlfill"></div>
+      <div class="tl rv">
+        <div class="when">Currently pursuing</div>
+        <h3>B.Tech in Computer Science and Engineering</h3>
+        <p>St Mary's Engineering College</p>
+      </div>
+      <div class="tl rv" style="--d:.12s">
+        <div class="when">Professional training</div>
+        <h3>Python Full Stack Developer course</h3>
+        <p>Teks Academy. Front-end with HTML, CSS, JavaScript and React; back-end with Python and SQL.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="wrap">
+    <div class="head rv"><h2>Projects</h2><p>A few things I'm building to practise the full stack.</p></div>
+    <div class="grid g3">
+      <article class="card proj rv">
+        <div class="shot"><div class="top"><i></i><i></i><i></i></div><div class="bar w2"></div><div class="bar w1"></div><div class="row"><div></div><div></div><div></div></div></div>
+        <h3>Personal Portfolio</h3>
+        <p>This responsive site, designed and coded from scratch with light and dark themes.</p>
+        <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
+        <div class="sample">Sample entry. Edit the details.</div>
+      </article>
+      <article class="card proj rv" style="--d:.1s">
+        <div class="shot"><div class="top"><i></i><i></i><i></i></div><div class="bar w3"></div><div class="row"><div></div><div></div></div><div class="bar w2"></div></div>
+        <h3>Task Manager App</h3>
+        <p>Add, complete and filter daily tasks in a clean, fast React interface.</p>
+        <div class="tags"><span class="tag">React</span><span class="tag">JavaScript</span><span class="tag">CSS</span></div>
+        <div class="sample">Sample entry. Replace with your project.</div>
+      </article>
+      <article class="card proj rv" style="--d:.2s">
+        <div class="shot"><div class="top"><i></i><i></i><i></i></div><div class="bar w1"></div><div class="bar w2"></div><div class="row"><div></div><div></div><div></div></div></div>
+        <h3>Student Records System</h3>
+        <p>Store and search student details with a Python back end and an SQL database.</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">SQL</span></div>
+        <div class="sample">Sample entry. Replace with your project.</div>
+      </article>
+    </div>
+    <p class="note rv">Send me your real project names, what they do and the links, and I'll replace these samples.</p>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="wrap">
+    <div class="head rv"><h2>Certifications</h2></div>
+    <div class="card cert rv">
+      <div class="badge"><span>🏅</span></div>
+      <div>
+        <h3>Python Full Stack Developer</h3>
+        <p>Teks Academy</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">React</span><span class="tag">SQL</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESUME -->
+<section id="resume">
+  <div class="wrap">
+    <div class="head rv"><h2>Resume</h2></div>
+    <div class="resume-wrap">
+      <div class="rv">
+        <p style="color:var(--muted);margin-bottom:1.5rem">A one-page summary of my education, skills and training. Use the button to print it or save it as a PDF.</p>
+        <button class="btn btn-primary" id="print">Save resume as PDF</button>
+      </div>
+      <div class="sheet rv" id="resume-sheet" style="--d:.12s">
+        <h3>Pathan Abed Ali Khan</h3>
+        <div class="role">Python / Frontend / Full Stack Developer (Fresher)</div>
+        <p style="margin-top:.5rem">WhatsApp: +91 97033 87760</p>
+        <h4>Summary</h4>
+        <p>B.Tech CSE student trained in Python full stack development, looking for a first developer role to build and ship real web applications.</p>
+        <h4>Education</h4>
+        <p><strong style="color:var(--ink)">B.Tech, Computer Science and Engineering</strong><br>St Mary's Engineering College</p>
+        <h4>Certification</h4>
+        <p><strong style="color:var(--ink)">Python Full Stack Developer</strong><br>Teks Academy</p>
+        <div class="two">
+          <div><h4>Languages</h4><ul><li>Python</li><li>JavaScript</li><li>SQL</li></ul></div>
+          <div><h4>Web</h4><ul><li>HTML</li><li>CSS</li><li>React</li></ul></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="contact">
+      <div class="avatar rv">
+        <div class="face" id="face"><img id="photoimg" src="c:\Users\rahil\OneDrive\Documents\My Profile.jpeg"/>
+        <input type="file" id="photo" accept="image/*" aria-label="Upload your profile photo">
+        <label for="photo" title="Add your photo">📷</label>
+      </div>
+      <div class="rv" style="--d:.12s">
+        <h2>Contact</h2>
+        <p class="sub">The quickest way to reach me is WhatsApp.</p>
+        <a class="line" href="https://wa.me/919703387760" target="_blank" rel="noopener">
+          <span class="ic">💬</span><span><small>WhatsApp</small><strong>+91 97033 87760</strong></span>
+        </a>
+        <a class="line" href="tel:+919703387760">
+          <span class="ic">📞</span><span><small>Phone</small><strong>+91 97033 87760</strong></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap"><span>Pathan</span><span>B.Tech CSE, St Mary's Engineering College</span></div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement;
+
+  // theme toggle
+  document.getElementById('theme').addEventListener('click',function(){
+    var dark=root.getAttribute('data-theme')==='dark' ||
+      (!root.getAttribute('data-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    root.setAttribute('data-theme',dark?'light':'dark');
+  });
+
+  // mobile menu
+  var links=document.getElementById('links'),burger=document.getElementById('burger');
+  burger.addEventListener('click',function(){
+    var o=links.classList.toggle('open');
+    burger.setAttribute('aria-expanded',o);
+    burger.textContent=o?'✕':'☰';
+  });
+  links.addEventListener('click',function(e){
+    if(e.target.tagName==='A'){links.classList.remove('open');burger.textContent='☰';burger.setAttribute('aria-expanded',false);}
+  });
+
+  // active nav link
+  var secs=[].slice.call(document.querySelectorAll('main section'));
+  var anchors={};[].forEach.call(links.querySelectorAll('a'),function(a){anchors[a.getAttribute('href').slice(1)]=a;});
+  function setActive(){
+    var y=window.scrollY+140,cur=secs[0].id;
+    secs.forEach(function(s){if(s.offsetTop<=y)cur=s.id;});
+    if(window.innerHeight+window.scrollY>=document.body.scrollHeight-4)cur=secs[secs.length-1].id;
+    for(var k in anchors)anchors[k].classList.toggle('active',k===cur);
+  }
+  window.addEventListener('scroll',setActive,{passive:true});setActive();
+
+  // reveal on scroll
+  var els=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+    },{threshold:.15});
+    els.forEach(function(el){io.observe(el);});
+  }else{els.forEach(function(el){el.classList.add('in');});}
+
+  // timeline line fills when visible
+  var tl=document.getElementById('timeline'),fill=document.getElementById('tlfill');
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es,o){
+      if(es[0].isIntersecting){fill.style.height='calc(100% - 12px)';o.disconnect();}
+    },{threshold:.3}).observe(tl);
+  }else{fill.style.height='calc(100% - 12px)';}
+
+  // typed code window
+  var L=[
+    [['k','class '],['f','Developer'],['','('],['d','Fresher'],['',')'],['',':']],
+    [['','    '],['','name '],['','= '],['s','"Pathan"']],
+    [['','    '],['','degree '],['','= '],['s','"B.Tech CSE"']],
+    [['','    '],['','stack '],['','= '],['','['],['s','"Python"'],['',', '],['s','"React"'],['',', '],['s','"SQL"'],['',']']],
+    [['','    '],['','goal '],['','= '],['s','"Full Stack Developer"']],
+    [['','    '],['','open_to_work '],['','= '],['k','True']]
+  ];
+  var pre=document.getElementById('typed');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var caret=document.createElement('span');caret.className='caret';
+  function buildStatic(){
+    pre.innerHTML='';
+    L.forEach(function(line,i){
+      line.forEach(function(t){var s=document.createElement('span');if(t[0])s.className=t[0];s.textContent=t[1];pre.appendChild(s);});
+      if(i<L.length-1)pre.appendChild(document.createTextNode('\n'));
+    });
+  }
+  if(reduce){buildStatic();}
+  else{
+    var li=0,ti=0,ci=0,cur=null;
+    pre.appendChild(caret);
+    (function tick(){
+      if(li>=L.length){return;}
+      var tok=L[li][ti];
+      if(!cur){cur=document.createElement('span');if(tok[0])cur.className=tok[0];pre.insertBefore(cur,caret);}
+      cur.textContent+=tok[1].charAt(ci++);
+      var d=24+Math.random()*28;
+      if(ci>=tok[1].length){
+        ci=0;cur=null;ti++;
+        if(ti>=L[li].length){
+          ti=0;li++;
+          if(li<L.length){pre.insertBefore(document.createTextNode('\n'),caret);d=320;}
+        }
+      }
+      setTimeout(tick,d);
+    })();
+  }
+
+  // photo upload (preview only)
+  document.getElementById('photo').addEventListener('change',function(e){
+    var f=e.target.files&&e.target.files[0];if(!f)return;
+    var r=new FileReader();
+    r.onload=function(){
+      var face=document.getElementById('face');
+      face.innerHTML='';
+      var img=document.createElement('img');img.src=r.result;img.alt='Pathan Abed Ali Khan';
+      face.appendChild(img);
+    };
+    r.readAsDataURL(f);
+  });
+
+  // reuse the contact photo in the hero
+  var ph=document.getElementById('photoimg'),hp=document.getElementById('heroimg');
+  if(ph&&hp){hp.src=ph.src;}
+
+  // print resume
+  document.getElementById('print').addEventListener('click',function(){window.print();});
+})();
+</script>
+</body>
+</html>
